@@ -3,11 +3,19 @@ package lesson1.dz21;
 public class Phone {
     private String phoneNumber;
     private boolean isRegisteredInNetwork;
+    private Network network;
 
     public Phone() {
     }
+
     public Phone(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Phone(String phoneNumber, boolean isRegisteredInNetwork, Network network) {
+        this.phoneNumber = phoneNumber;
+        this.isRegisteredInNetwork = isRegisteredInNetwork;
+        this.network = network;
     }
 
     public String getPhoneNumber() {
@@ -16,6 +24,22 @@ public class Phone {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public boolean isRegisteredInNetwork() {
+        return isRegisteredInNetwork;
+    }
+
+    public void setRegisteredInNetwork(boolean registeredInNetwork) {
+        isRegisteredInNetwork = registeredInNetwork;
+    }
+
+    public Network getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(Network network) {
+        this.network = network;
     }
 
     public boolean isRegistredInNetwork() {
@@ -29,9 +53,10 @@ public class Phone {
 
     public void registrationInNetwork(Network network){
         isRegisteredInNetwork = network.phoneRegistration(this);
+        this.network = network;
     }
 
-    public void tryToCall(String phoneNumber, Network network){
+    public void tryToCall(String phoneNumber){
         if (!isRegisteredInNetwork){
             System.out.println("Tne phone number " + this.getPhoneNumber() + " you calling from is not registered in the network");
         }else if (!network.isPhoneNumberRegistered(phoneNumber)){
@@ -48,8 +73,6 @@ public class Phone {
     public void outgoingCall(String phoneNumber){
         System.out.println("Outgoing call from " + this.getPhoneNumber() + " to " + phoneNumber);
     }
-
-
 }
 //Создайте класс Phone (Телефон) одним из свойств должен быть его номер. Создайте
 //класс Network (сеть мобильного оператора). В классе Телефон должны быть описаны

@@ -2,7 +2,7 @@ package lesson1.dz21;
 
 public class Network {
     private int i;
-    private Phone [] registeredPhones = new Phone[100]; //РџСѓСЃС‚СЊ СЃРµС‚СЊ РІС‹РґРµСЂР¶РёРІР°РµС‚ РјР°РєСЃРёРјСѓРј 100 С‚РµР»РµС„РѕРЅРѕРІ
+    private Phone [] registeredPhones = new Phone[100]; //Пусть сеть выдерживает максимум 100 телефонов
 
     public Network() {
     }

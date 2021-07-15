@@ -6,15 +6,15 @@ public class Main {
     Phone phone1 = new Phone("80931234567");
     Phone phone2 = new Phone("80501234567");
 
-    phone1.tryToCall(phone2.getPhoneNumber(),network);
+    phone1.tryToCall(phone2.getPhoneNumber());
 
     phone1.registrationInNetwork(network);
-    phone1.tryToCall(phone2.getPhoneNumber(),network);
+    phone1.tryToCall(phone2.getPhoneNumber());
 
     phone2.registrationInNetwork(network);
 
-    phone1.tryToCall(phone2.getPhoneNumber(),network);
-    phone2.tryToCall(phone1.getPhoneNumber(),network);
+    phone1.tryToCall(phone2.getPhoneNumber());
+    phone2.tryToCall(phone1.getPhoneNumber());
 
     }
 }
