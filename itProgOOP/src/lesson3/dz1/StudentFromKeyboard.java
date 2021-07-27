@@ -9,14 +9,25 @@ public class StudentFromKeyboard extends Student{
     private String gender;
 
     public StudentFromKeyboard(){
+        setNameFromKeyboard();
+        setLastnameFromKeyboard();
+        setAgeFromKeyboard();
+        setGenderFromKeyboard();
+        setGroupFromKeyboard();
+        setRecordBookFromKeyboard();
+    }
 
+    private void setNameFromKeyboard() {
         System.out.println("Enter name:");
         this.setName(scanner.nextLine());
+    }
 
+    private void setLastnameFromKeyboard() {
         System.out.println("Enter lastname:");
         this.setSurName(scanner.nextLine());
+    }
 
-
+    private void setAgeFromKeyboard(){
         for (; ; ) {
             try {
                 System.out.println("Enter age:");
@@ -28,7 +39,9 @@ public class StudentFromKeyboard extends Student{
                 scanner.nextLine();
             }
         }
+    }
 
+    private void setGenderFromKeyboard() {
         for (; ; ) {
             System.out.println("Enter gender (MALE or FEMALE):");
             gender = scanner.nextLine();
@@ -42,10 +55,14 @@ public class StudentFromKeyboard extends Student{
             }
             System.out.println("Incorrect input!");
         }
+    }
 
+    private void setGroupFromKeyboard() {
         System.out.println("Enter group:");
         this.setGroup(scanner.nextLine());
+    }
 
+    private void setRecordBookFromKeyboard() {
         for (; ; ) {
             try {
                 System.out.println("Enter recordBook:");
@@ -57,6 +74,14 @@ public class StudentFromKeyboard extends Student{
             }
         }
     }
+
+
+
+
+
+
+
+
     public void addStudentToGroup(Student student, Group group){
         group.addStudent(student);
     }

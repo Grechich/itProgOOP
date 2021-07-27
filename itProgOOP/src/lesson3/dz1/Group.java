@@ -38,7 +38,7 @@ public class Group {
     public void addStudent(Student student) {
 
         for (int i = 0; i < students.length; i++) {
-            if (students[i] != null){
+            if (students[i] != null && student != null){
                 if (students[i].getRecordBook() == student.getRecordBook()){
                     System.out.println("Student with recordBook #" + student.getRecordBook() + " is already in this group");
                     return;

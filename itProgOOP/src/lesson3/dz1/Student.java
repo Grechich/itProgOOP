@@ -43,7 +43,7 @@ public class Student extends Person implements CSVConverter{
 
         String group = fields[0];
         try {
-            long recordBook = Integer.parseInt(fields[1]);
+            recordBook = Integer.parseInt(fields[1]);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -67,12 +67,6 @@ public class Student extends Person implements CSVConverter{
         Student student = new Student(name, surName, age, gender, group, recordBook);
         return student;
     }
-
-
-
-
-
-
 
     public String getGroup() {
         return group;
