@@ -2,6 +2,7 @@ package lesson3.dz1;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Group {
     private String name;
@@ -89,6 +90,18 @@ public class Group {
         return null;
     }
 
+    public boolean isEqualStudentsInGroup(){
+        for (int i = 0; i < students.length; i++) {
+            if (students[i] != null){
+                for (int j = i + 1; j < students.length; j++) {
+                    if (students[i].equals(students[j]))
+                        return true;
+                }
+            }
+        }
+        return false;
+    }
+
     @Override
     public String toString() {
         return "Group [name= " + name + ", students: " + "\n" + Arrays.toString(sortByNames(students)) + "]";
@@ -104,4 +117,28 @@ public class Group {
         return students;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(students);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (this.getClass().getName() != obj.getClass().getName())
+            return false;
+        Group other = (Group) obj;
+        if (name != other.name)
+            return false;
+        if (students.length != other.students.length)
+            return false;
+        for (int i = 0; i < students.length; i++) {
+            if (students[i] != null && !students[i].equals(other.students[i]))
+                return false;
+        }
+        return true;
+    }
 }

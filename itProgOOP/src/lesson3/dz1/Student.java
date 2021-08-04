@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Student extends Person implements CSVConverter{
 
@@ -19,9 +20,6 @@ public class Student extends Person implements CSVConverter{
         this.recordBook = recordBook;
     }
 
-
-    //На основе Студента создать строку с его CSV представлением и наоборот на основе этой строки
-    //создать Студента.
     @Override
     public String toCSVString() {
         String stud;
@@ -91,15 +89,22 @@ public class Student extends Person implements CSVConverter{
                 ", recordBook=" + recordBook +
                 '}'+ "; " + super.toString();
     }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode() + Objects.hash(group, recordBook);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (this.getClass() != obj.getClass())
+            return false;
+        Student other = (Student) obj;
+        return super.equals((Person)other) && Objects.equals(group, other.group) && recordBook == other.recordBook;
+    }
 }
-//1) Создайте класс, описывающий человека (создайте метод,
-//выводящий информацию о человеке).
-//2) На его основе создайте класс студент (переопределите
-//метод вывода информации).
-//3) Создайте класс Группа, который содержит массив из 10
-//объектов класса Студент. Реализуйте методы добавления,
-//удаления студента и метод поиска студента по фамилии. В
-//случае попытки добавления 11 студента, создайте
-//собственное исключение и обработайте его. Определите
-//метод toString() для группы так, что бы он выводил список
-//студентов в алфавитном порядке.
+

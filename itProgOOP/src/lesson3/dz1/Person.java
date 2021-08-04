@@ -1,5 +1,7 @@
 package lesson3.dz1;
 
+import java.util.Objects;
+
 public class Person {
 
     private String name;
@@ -59,7 +61,23 @@ public class Person {
                 '}';
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surName, age, gender);
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (this.getClass() != obj.getClass())
+            return false;
+        Person other = (Person) obj;
+        return Objects.equals(name, other.name) && Objects.equals(surName,other.surName) &&
+                age == other.age && Objects.equals(gender, other.gender);
+    }
 }
 
 
