@@ -9,6 +9,7 @@ public class Item {
         this.price = price;
         this.description = description;
         this.weight = weight;
+        System.out.println("Test");
     }
     public Item() {
     }
